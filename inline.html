@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //변수 value에 100을 저장 후 alert로 출력
+        let value = 100;
+        /*저장된 값은 100(value)입니다. 로 출력
+        alert(`저장된 값은 ${value} 입니다`);*/
+
+        /* let input = prompt();   사용자 입력창 띄우기
+           console.log(input); */
+       
+        /* 사용자에게 값을 입력받아, 
+           출력 :  "입력받은 값은 ~~ 입니다" 로 나타내기
+        let input = prompt();
+        console.log(`입력받은 값은 ${input} 입니다`);   console에서 나타내기
+        document.write(`입력받은 값은 ${input} 입니다`);   body에서 나타내기
+//console과 document는 객체라고 불리며, 이미 만들어진 객체여서 내장 객체라고 함  */
+        let input = prompt("숫자를 입력하세요","0");  /*메시지와 입력 기본 값*/
+        document.write(typeof(input), input);
+    </script>
+</body>
+</html>

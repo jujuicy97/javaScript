@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 입력</title>
+</head>
+<body>
+    <script>
+        //출력 : console.log
+        //document.write
+        /*팝업 : (잘 사용은 안함...)
+        alert
+        prompt
+        confirm
+        */
+    /*
+    alert("메시지");   //확인 버트만 있음 
+    //confirm("메시지"); //확인과 취소가 나옴
+    //prompt('메시지');  //사용자로부터 입력을 받을 수 있는 창이 추가
+    let value = prompt('메시지 입력', 'a');
+    //취소버튼을 누르면 document에 출력 안되게
+    //velue 값이 null이면 취소가 되었음. 즉, value값이 !=null이 아닐 경우만 출력
+    //document.write(value);
+    if(value!=null){
+        document.write(value);
+    }
+    */
+
+    let value = confirm("확인하셨습니까?");
+    // document.write(value);
+    if(value){
+        document.write("확인하였습니다");
+    }else{
+        document.write("취소하였습니다");
+    }
+    </script>
+</body>
+</html>
