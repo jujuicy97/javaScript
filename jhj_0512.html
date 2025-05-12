@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습하기</title>
+</head>
+<body>
+    <!--물건의 결제 금액을 계산합니다
+- 물건의 수량 입력받기
+- 물건 1개의 금액을 입력받기
+- 수량*금액
+- 결제금액을 화면에 출력 -->
+
+<!-- <input type="text" placeholder="수량을 입력하세요" id="co">
+<input type="text" placeholder="금액을 입력하세요" id="pl">
+<button onclick="count();">확인</button>
+<p id="result"></p>
+
+<script>
+    //확인버튼을 클릭했을 때 수량과 금액을 작성할 함수 정의
+    //수량과 금액에 대한 정보 가져오기
+    //수량*금액으로 나타내기
+    //p태그에 출력하기
+
+const count = ()=>{
+    const num1 = document.querySelector("#co").value;
+    const num2 = document.querySelector("#pl").value;
+    const all = num1 * num2;
+    const pElem = document.querySelector("#result");
+    pElem.textContent = `결과값은 ${"#result"} 입니다`
+}
+</script> -->
+
+<!--사용자가 두 숫자를 입력하고 빼기(-)연산을 해서 결과값을 추출하기 
+- 두 숫자를 입력받을 함수를 지정하기
+- 두 숫자의 정보를 가져오기
+- 숫자1-숫자2의 형태를 만들기
+- 결과값을 p태그에 입력하고 추출하기
+-->
+
+<input type="text" placeholder="숫자를 입력하세요" id="num1">
+<input type="text" placeholder="숫자를 입력하세요" id="num2">
+<button onclick="up();">확인</button>
+<p id="result">결과:</p>
+
+<script>
+    const up = ()=>{
+        const count1 = document.querySelector("#num1").value;
+        const count2 = document.querySelector("#num2").value;
+        const all = Number(count1) - Number(count2);
+        const pElem = document.querySelector("#result");
+        pElem.textContent += all; //pElem.textContent = pElem.textContent + all; 의 축약 연산자
+    }
+</script>
+
+</body>
+</html>

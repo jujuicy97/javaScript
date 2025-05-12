@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1 id="title">DOM구조</h1>
+    <button>클릭</button>
+    <button>처음</button>
+    <p class="txt" onclick="changeText()">문단을 입력합니다</p>
+    <script>
+        const h1elem = document.getElementById('title');
+        // console.log(h1elem);         //요소는 객체로 저장됨
+        // console.dir(h1elem);
+        // console.log(typeof(h1elem));             //h1elem의 속성은 객체인 것을 알 수 있음
+        // console.log(h1elem.innerText);           //html에서 출력하려면 (객체.속성) 입력
+        // h1elem.innerText = "<i>기울이기추가</i>";
+        // h1elem.innerHTML = "<i>기울이기추가</i>";    //속성을 바꾸기
+        // h1elem.textContent = "<i>기울이기추가</i>";    //속성을 바꾸기
+        // const btnElem = document.getElementsByTagName("button");
+        // console.log(btnElem[0]);          //배열로 나타남
+        // const titleElem = document.querySelector("#title");     //선택자로 가져오는 방법
+        // console.log(tltleElem);
+
+//querySelector로 가져오기
+    //querySelector 위로 내려오면서 단 한개만 가져오는 것, querySelectorAll사용시 전부를 가져오게 됨
+        // const buttonElem = document.querySelector("button"); 
+        // console.log(buttonElem);
+
+//ClassName으로 가져오기
+        // const pElem = document.getElementsByClassName("txt");
+        // console.log(pElem[0]);       //만든 class가 1개밖에 없어도 []배열로 가지고 옴. 1개만 가져오려면[0]
+
+    //1개만 가져올 때는 class name보단 query가 편함
+        const pElem = document.querySelector(".txt");   
+        console.log(pElem);
+
+//함수, 화살표 함수
+//작성 소스가 굉장히 많고, 반복할 일이 많다.
+//해야할 일들, 기능별로 명령어들을 묶어 놓은 것을 함수라고 함
+//단순히 한 동작만 실행하는 것이 아니라, 여러가지 동작이 연결
+        const changeText = ()=>{
+            pElem.style.color = "blue";
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수사용</title>
+</head>
+<body>
+    <!-- <button onclick="say();">클릭</button>
+    <script>
+        const say = ()=>{
+            alert("클릭하셨습니다");
+        }
+    </script>  -->
+
+
+     <!-- ***input에 사용자 이름을 입력 후 확인 버튼을 클릭하면, ~님 반갑습니다. 출력
+     <input type="text" placeholder="이름을 입력하세요">
+     <button onclick="welcome()">확인</button>
+     <p id="result"></p>
+     <script>
+        const welcome = ()=>{
+            const user = document.querySelector("input");  //1)요소 정보를 먼저 가져오기(qurey~로 선택)
+            // console.log(user.value);                     
+            const result = document.querySelector("#result"); //2)저장된 정보 기재
+            result.textContent = `${user.value}님 반갑습니다`; //3)문구 띄우기
+     </script> -->
+
+
+     <!-- 체크박스에 체크를 하면 동의하셨습니다 팝업창이 보이도록
+      <input type="checkbox" id="agree">     for, id로 묶으면 체크박스와 라벨 둘 중 어느걸 눌러도 체크됨
+      <label for="agree">동의합니다</label>
+       2. 이벤트 처리
+      <button onclick="checkAgree()">확인</button>
+      <script>
+        const checkAgree = ()=>{
+            //1. 요소의 정보 가져오기
+            const isChecked = document.querySelector("#agree"); //저장된 정보 기재
+            //3. 가져온 정보를 수정하고 다시 정보 저장(브라우저가 알아서 랜더링)
+            if(isChecked.checked){     //문구 띄우기
+                //true일 경우
+                alert("동의하셨습니다");
+            }else{
+                alert("동의가 필요합니다")
+            }
+        } 
+      </script>-->
+
+
+      <!-- <button onclick="chageBg('tomato');">토마토색</button>
+      <button onclick="chageBg('skyblue');">하늘색</button>
+      <button onclick="chageBg('yellowgreen');">연두색</button>
+      <script>
+        //공통된 건 : 클릭하면 백그라운드 색상이 바뀌는 것
+        //변경된 건 : 버튼별로 색상이 틀리게 되는 것
+        const chageBg = (color)=>{
+            document.body.style.backgroundColor = color;
+        }
+      </script> -->
+
+
+<!--숫자를 input으로 2개를 입력 -> 계산이라는 버튼을 누르면 값이 출력-->
+       <!-- <input type="number" placeholder="숫자1">
+       <input type="number" placeholder="숫자2">
+       <button onclick="calc();">계산</button>
+       <p id="result">결과:</p>
+<script>
+    /*
+    1. 더하기 버튼을 클릭했을 때의 함수를 정의
+    2. input에 저장된 숫자 정보를 가져오기
+    3. 가져온 숫자를 더하기
+    4. 결과값을 p태그에 출력하기
+    */
+       const calc = () =>{
+        console.log("두 수 더하기 함수 실행");
+        //인풋에 저장된 숫자 정보 가져오기
+         const num1 = document.querySelector("input:nth-child(1)");
+         const num2 = document.querySelector("input:nth-child(2)");
+        //  console.log(num2.value);
+        const result = Number(num1.value) + Number(num2.value); //Number는 문자를 숫자로 바꾸어줌
+        //  console.log(result);
+        const pElem = document.querySelector("#result");
+        // console.log(pElem.textContent);
+        // pElem.textContent += result;
+        //결과 : 16
+        // pElem.textContent = pElem.textContent + result;  //이 문장이 바로 윗 문장과 동일 +=에 대한 풀이
+        pElem.textContent = `결과값은: ${result} 입니다`;
+       }
+</script> -->
+
+<!-- 비밀번호 일치 확인. 일치하면 '비밀번호가 일치합니다', 다르면 '비밀번호가 다릅니다' 출력-->
+    <!-- <input type="password" placeholder="비밀번호" id="pw1">
+    <input type="password" placeholder="비밀번호 확인" id="pw2">
+    <button onclick="chek()">확인</button>
+    <p id="result"></p>
+    
+    <script>
+        /*
+        1. 확인 버튼을 클릭했을 때, 비밀번호를 작성할 함수 정의
+        2. input에 저장된 정보 가져오기
+        3. 비밀번호가 일치하는지 아닌지 확인(input끼리 비교하여 같은지 다른지 체크)
+        4. 체크 결과값을 p 태그에 출력하기
+        */
+
+        const chek = ()=>{
+            //인폿에 저장된 정보 가져오기
+            const pass1 = document.querySelector("#pw1").value;
+            const pass2 = document.querySelector("#pw2").value;
+            // console.log(pass1.value);
+            let msg = '';
+            if(pass1 === pass2){
+                msg = "비밀번호가 일치합니다";
+            }else{
+                msg = "비밀번호가 일치하지 않습니다";
+            }
+            //p태그에 출력
+            const pElem = document.querySelector("#result");
+            pElem.textContent = msg;
+        }
+    </script> -->
+
+<!--물건의 결제 금액을 계산합니다
+- 물건의 수량 입력받기
+- 물건 1개의 금액을 입력받기
+- 수량*금액
+- 결제금액을 화면에 출력 -->
+
+     <input type="text" placeholder="수량을 입력하세요" id="co">
+     <input type="text" placeholder="금액을 입력하세요" id="pl">
+     <button onclick="count()">확인</button>
+     <p id="result"></p>
+
+    <script>
+//확인 버튼을 클릭했을때, 수량을 작성할 함수 정의
+//input에 저장된 정보 가져오기(수량과 금액 두개의 도큐먼트 정보 가져오기)
+//수량*금액의 형태로 만들기
+//결과값을 p태그에 출력하기
+
+        const count = ()=>{
+            const num1 = document.querySelector("#co").value; //value 값은 한 번만 가져오면 됨
+            const num2 = document.querySelector("#pl").value;
+            const all = Number(num1) * Number(num2);
+            const pElem = document.querySelector("#result");
+            pElem.textContent = `결과값은: ${all} 입니다`;
+        }
+    </script>
+</body>
+</html>
