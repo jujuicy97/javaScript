@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<input type="number" id="num1">
+<input type="number" id="num2">
+<button>비교</button>
+<p>결과:</p>
+<body>
+    <script>
+        /*
+        *input태그를 이용해서 숫자 2개를 입력받습니다.
+        *비교라는 버튼을 만들어서 버튼을 클릭하면 
+        *작은 숫자를 출력시켜줍니다.
+        */
+        const $btn = document.querySelector("button");
+        let small = null;
+        const result =() =>{
+            const $num1 = document.querySelector("#num1").value; 
+            const $num2 = document.querySelector("#num2").value;
+            //입력받은 두 수중에 작은 수 찾기
+            // if($num1>$num2){
+            //     small = $num2;
+            // } else{
+            //     small = $num1;
+            // }
+            //(조건) ?  참 : 거짓
+            small = ($num1 > $num2) ? $num2 : $num1;
+            // document.querySelector("p").textContent = `결과: ${small}이 작은 수 입니다`
+            const $p = document.querySelector("p");
+            $p.textContent = `결과: ${small}이 작은 수 입니다`
+        }
+        $btn.onclick = result;
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM트리</title>
+</head>
+<body>
+    <h1>I CAN DO IT!</h1>
+    <img src="./images/img-1.png" alt="이미지-1">
+    <div>
+        <p>이미지를 가져왔습니다</p>
+    </div>
+    <script>
+        const $img = document.querySelector("img");
+        const $div = document.querySelector("div"); //div가 p태그까지 포함하고 있음
+        const $p = $div.querySelector("p");  //p태그만 따로 가져올 때
+        console.log($p);
+    </script>
+</body>
+</html>
