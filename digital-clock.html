@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 시계</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #222;
+        }
+        div{
+            background-color: #eee;
+            color: #222;
+            padding: 1rem 3rem;
+            font-size: 11rem;
+            border: 1px solid #eee;
+            border-radius: 1rem;
+            box-shadow: 0 0 30px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body>
+    <div>00:00:00</div>
+    <script>
+        const $timeDiv = document.querySelector("div");
+        const updateClock =()=>{
+            //현재 시/분/초를 가져오기
+            const now = new Date();
+            // const hours = now.getHours();
+            // const mini = now.getMinutes();
+            // const seco = now.getSeconds();
+            //위처럼 만들면 00:00:00의 형태가 안나와서 아래와 같이 속성 수정
+            
+            //mdn사이트에서 padStart객체 설명 참고 후, 숫자로 먼저 바꾸고 padStart사용
+            const hours = String(now.getHours()).padStart(2,"0");
+            const mini = String(now.getMinutes()).padStart(2,"0");
+            const seco = String(now.getSeconds()).padStart(2,"0");
+            const timeStr = `${hours}:${mini}:${seco}`;
+            $timeDiv.textContent = timeStr;
+        }
+        setInterval(updateClock,1000);
+        updateClock();
+    </script>
+</body>
+</html>
