@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자주 묻는 질문</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        main{
+            margin: 20px;
+        }
+        #question{
+            background-color: #333;
+            color: #eee;
+            padding: 20px;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+        #answer{
+            padding: 20px;
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>자주 묻는 질문</h1>
+        <p id="question">Q.멤버십을 해지하려면 어떻게 하나요?</p>
+        <div id="answer" style="display: none">A.부담없이 간편하게 멤버십 해지를 하십시오.</div>
+    </main>
+    <script>
+        //1. qustion 클릭 시 answer창이 보이도록
+        const questionElem = document.querySelector("#question");
+        questionElem.addEventListener("click",()=>{
+            const answerElem = document.querySelector("#answer");
+            // answerElem.style.display = 'block';
+        //2. qustion창을 다시 클릭 시 answer창이 사라지도록
+        //삼항연산자의 경우(가장 간단!)
+            answerElem.style.display = answerElem.style.display === 'none' ? 'block' : 'none';
+        //if문의 경우
+            // if(answerElem.style.display === "none"){
+            //     answerElem.style.display = "block";
+            // } else {
+            //     answerElem.style.display = "none";
+            // }
+        //switch문의 경우
+            // switch(answerElem.style.display){
+            //     case "none":
+            //         answerElem.style.display = "block";
+            //         break;
+            //     case "block":
+            //         answerElem.style.display = "none";
+            //         break;    
+            // }    
+        });
+
+
+    </script>
+</body>
+</html>

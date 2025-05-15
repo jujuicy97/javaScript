@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 변경</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      main {
+        width: 300px;
+        margin: 100px auto;
+      }
+      main > img {
+        width: 100%;
+      }
+      main > div {
+        display: flex;
+        gap: 10px;
+      }
+      main > div > button {
+        flex: 1;
+        padding: 20px 0;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="./images/img-1.png" alt="이미지1" />
+      <div>
+        <button data-number="1">1</button> <!--data-로 만들면 사용자가 사용하기 위해서 만든거라 오류 없음-->
+        <button data-number="2">2</button> <!--html과 js의 연결을 깔끔하게 해줌-->
+        <button data-number="3">3</button>
+      </div>
+    </main>
+    <script>
+        const btnElem = document.querySelectorAll("button");
+        const imgElem = document.querySelector("img");
+        btnElem.forEach((elem)=>{  //btnElem에 elem으로 저장하기
+            // console.log(elem);
+            //저장한 elem을 클릭하는 설정하기
+            elem.addEventListener("click",()=>{    
+                console.log(elem.textContent);
+            //src의 textcontent안의 1,2,3만 변경해주기    
+                imgElem.src = `./images/img-${elem.textContent}.png`
+            //data-로 시작하는 속성 불러오기
+            //     console.log(elem.dataset.number);
+            //     imgElem.src = `./images/img-${elem.dataset.number}.png`
+               })
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 선택</title>
+    <style>
+        main{
+            width: 300px;
+            margin: 100px auto;
+        }
+        main > img{
+            width: 100%;
+        }
+        main > div{
+            display: flex;
+        }
+        main > div > img{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <img src="./images/img-3.png" alt="이미지3" >      <!--id=mainimg-->
+        <div>
+            <img src="./images/img-3.png" alt="이미지3" >  <!--class=subimg-->
+            <img src="./images/img-1.png" alt="이미지1" >  <!--class=subimg-->
+            <img src="./images/img-4.png" alt="이미지4" >  <!--class=subimg-->
+        </div>
+    </main>
+        <script>
+        //src각각 불러오기
+        const mainElem = document.querySelector("img");       //("#mainimg")
+        const subElem = document.querySelectorAll("div>img"); //(".subimg")
+        //불러온 src를 각각 클릭 설정하기
+        subElem.forEach((data)=>{
+            data.addEventListener("click",()=>{
+                console.log(data.src);
+        //mainimg를 subimg를 클릭한대로 변경해주기
+            mainElem.src = data.src;
+            });
+        });
+    </script>
+
+     <!-- id와class를 지정해서 해보는 방법
+    <script>
+        //src각각 불러오기
+        const mainElem = document.querySelector("#mainimg");  //img
+        const subElem = document.querySelectorAll(".subimg"); //div>img
+        //불러온 src를 각각 클릭 설정하기
+        subElem.forEach((data)=>{
+            data.addEventListener("click",()=>{
+                console.log(data.src);
+        //mainimg를 subimg를 클릭한대로 변경해주기
+            mainElem.src = data.src;
+            });
+        });
+    </script> -->
+</body>
+</html>

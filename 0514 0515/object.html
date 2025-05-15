@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object기본문법</title>
+</head>
+<body>
+    <!-- <script src="./object-1.js"></script> -->
+     <p class="a b c">p태그컨텐츠</p>
+     <script>
+        const elem = document.querySelector("p"); //문서에서 요소를 가져오면(키값을 변경하기 위해)
+        console.log(typeof(elem));                //object(key : value), 객체로 가져와짐
+        elem.textContent="태그정보를 수정";        //자료형 "" : 문자열(String), {ket : value} : 객체(Object), [] : 배열(Array), True/False : Boolean, 숫자(Number)
+        console.dir(elem);
+     </script>
+</body>
+</html>

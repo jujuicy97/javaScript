@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상세설명보기</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        main{
+            width: 30%;
+            margin: 0 auto;
+        }
+        main > img{
+            width: 100%;
+        }
+        main > p{
+            position: relative;
+            top: -80px;
+            left: 10px;
+            background-color: #eee;
+            width: 100px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        main > .detail{
+            display: none;
+        }
+        main > .detail > p{
+            padding: 5px 0;
+        }
+        main > .detail > #close{
+            padding: 20px;
+            background-color: #222;
+            color: #eee;
+            width: 100px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="./images/img-1.png" alt="상세이미지" />
+      <p id="open">상세설명보기</p>
+      <div class="detail">
+        <p>상세설명</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita natus in molestias quas alias? Doloremque nostrum culpa sapiente quos reiciendis. Nulla delectus vero reprehenderit suscipit minima sint ex nisi aliquid.</p>
+        <p id="close">상세설명닫기</p>
+      </div>
+    </main>
+    <script>
+        //#open요소정보 가져오기
+        const openElem = document.querySelector("#open");
+        console.log(openElem);
+        //open요소 클릭 시 이벤트 발생시키고 함수 등록
+        openElem.addEventListener("click",()=>{
+            //.detail 요소 정보 가져오기
+            //none처리 했던 .detail의 style을 block으로 바꾸기
+        const detailElem = document.querySelector(".detail");
+        detailElem.style.display = "block";
+//img에 불투명 처리하기        
+        //.img요소 정보 가져오기
+        const image = document.querySelector("img");
+        //img의 style을 opancity값 0.5처리 하기
+        image.style.opacity = "0.5";
+        });
+
+        //.close요소 정보를 가져오기
+        const closeElem = document.querySelector("#close");
+        console.log(closeElem);
+        //close요소 클릭 시 이벤트 발생시키고 함수 등록
+        closeElem.addEventListener("click",()=>{
+            //.detail 요소 정보 가져오기
+            //block처리 했던 .detail의 style을 none으로 바꾸기
+            const detailElem = document.querySelector(".detail");
+            detailElem.style.display = "none";
+//img에 불투명 처리 없애기            
+            const image = document.querySelector("img");
+            image.style.opacity="1";
+        });
+        
+
+        //style요소 opansit값 바꾸기
+    </script>
+  </body>
+</html>

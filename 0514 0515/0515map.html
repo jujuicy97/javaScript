@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품목록</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        li{list-style: none;}
+        #product-list > li{
+            /*html에서 만들어지진 않았지만, script로 만들어서 적용 가능*/
+            color: blue;   
+        }
+    </style>
+</head>
+<body>
+    <h1>오늘의 상품</h1>
+    <ul id="product-list">
+        <!--<li>에코백</li>-->
+    </ul>
+    <script>
+        const products = ['에코백','텀블러','다이어리','시계'];
+        const lists = products.map((item)=>{
+            return `<li>${item}</li>`;
+        });
+        const itemStr = lists.join('');  //문자열 합치기
+        const elem = document.querySelector("#product-list");
+        elem.innerHTML = itemStr;
+    </script>
+</body>
+</html>
