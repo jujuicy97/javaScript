@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 설명보기</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+      }
+      main {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+      main > div {
+        width: 300px;
+      }
+      main > div > p {
+        text-align: center;
+      }
+      main > div > img {
+        width: 100%;
+      }
+
+      section{
+        display: none;
+      }
+      section > .popimg{
+        width: 400px;
+        background-color: #eee;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        border-radius: 10px;
+      }
+      section > .popimg >img{
+        width: 90%;
+      }
+      section > .popimg >p{
+        font-size: 14px;
+        margin: 10px 0;
+      }
+      .popimg >.closeBtn{
+        position: relative;
+        top: 20px;
+        left: 175px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <button class="prev">이전</button>
+      <div>
+        <img src="./images/img-1.png" alt="첫번째이미지" />
+        <p>이미지1 설명입니다</p>
+      </div>
+      <button class="next">다음</button>
+    </main>
+    <section>
+
+      <div class="popimg">
+        <button class="closeBtn">x</button>
+        <img src="./images/img-1.png" alt="팝업이미지" />
+        <p>
+          이것은 이미지 1의 설명입니다. 클릭하면 크게 보입니다
+        </p>
+      </div>
+    </section>
+    <script src="./jhj.js"></script>
+  </body>
+</html>

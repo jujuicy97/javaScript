@@ -29,7 +29,7 @@
   </head>
   <body>
     <main>
-      <img src="./images/img-1.png" alt="이미지1" />
+      <img src="../images/img-1.png" alt="이미지1" />
       <div>
         <button data-number="1">1</button> <!--data-로 만들면 사용자가 사용하기 위해서 만든거라 오류 없음-->
         <button data-number="2">2</button> <!--html과 js의 연결을 깔끔하게 해줌-->
@@ -45,7 +45,7 @@
             elem.addEventListener("click",()=>{    
                 console.log(elem.textContent);
             //src의 textcontent안의 1,2,3만 변경해주기    
-                imgElem.src = `./images/img-${elem.textContent}.png`
+                imgElem.src = `../images/img-${elem.textContent}.png`
             //data-로 시작하는 속성 불러오기
             //     console.log(elem.dataset.number);
             //     imgElem.src = `./images/img-${elem.dataset.number}.png`
