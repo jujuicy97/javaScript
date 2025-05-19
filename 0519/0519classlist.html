@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할일목록</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{
+            font-size: 2rem;
+        }
+        ul>li{
+            padding: 1rem;
+        }
+        .completed{
+            text-decoration: line-through;
+            color: gray;
+        }
+        .bgBlack{
+            background-color: black;
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>할일목록</h1>
+    <ul>
+        <li>자바스크립트 연습</li>
+        <li>HTML 연습</li>
+        <li>CSS 연습</li>
+    </ul>
+    <script>
+        const ulElem = document.querySelector("ul");
+        // const elem = ulElem.querySelector("li:first-child");
+        // console.dir(elem);
+        ulElem.addEventListener("click",(e)=>{
+            // elem.className = "completed"     //방법1) bgBlack만 classList에서 삭제
+            // elem.classList.remove("bgBlack"); //방법2) bgBlack만 classList에서 삭제
+            // if(elem.className === 'completed'){
+            //     elem.className = "completed bgBlack"
+            // }else{
+            // elem.className = "completed";
+            // }
+        //contains : 클래스가 있는지 체크
+           let elem = e.target;
+           elem.classList.toggle("completed");  //completed가 있으면 remove 없으면 toggle
+        //    const has = elem.classList.contains("completed");
+        //    console.log(has);
+        //    if(has){
+        //     //이미 추가가 되어있으니, bgBlack추가
+        //     elem.classList.add("bgBlack");
+        //    }else{
+        //     elem.classList.add("completed");
+        //    }
+        });
+    </script>
+</body>
+</html>

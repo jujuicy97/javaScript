@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        main{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+        main > img{
+            width: 300px;
+        }
+        div.popup{
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.6);
+            display: none;
+        }
+        div.popup > img{
+            width: 600px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        div.popup > button{
+            outline: none;
+            border: none;
+            padding: 1rem;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- <button>클릭!</button>
+    <script>
+        const elem = document.querySelector("button");
+        // console.log(elem);
+        elem.addEventListener("click",(e)=>{     
+            alert("마우스 클릭!");
+            console.log(e.target);      //이벤트가 일어난 대상
+        });
+    </script> -->
+    <main>
+        <img src="./images/img-1.png" alt="이미지1">
+        <img src="./images/img-2.png" alt="이미지2">
+        <img src="./images/img-3.png" alt="이미지3">
+    </main>
+    <div class="popup">
+        <img src="./images/img-1.png" alt="팝업이미지">
+        <button>X</button>
+    </div>
+    <script>
+        // const imgElem = document.querySelectorAll("main>img");
+        // imgElem.forEach((item)=>{      //각각의 이미지를 가져올 때, forEach 또는 for문
+        //     // console.log(item);
+        //     item.addEventListener("click",(e)=>{
+        //         console.log(item.src);
+        //         console.log(e.target);
+        //     });
+        // });
+
+        const mainElem = document.querySelector("main");
+        const imgElem = mainElem.querySelectorAll("img");
+        // console.log(mainElem.children);
+        const popupElem = document.querySelector("div.popup")
+        const popupImg = document.querySelector("div.popup>img")
+        const closeImg = document.querySelector("div.popup>button")
+        mainElem.addEventListener("click",(e)=>{
+            // console.log("main click");  //이벤트만 발생
+            console.log(e.target.src);  //실제 이벤트가 일어난 대상을 알 수 있음
+            popupImg.src = e.target.src;
+            popupElem.style.display = "block";
+        });
+        closeImg.addEventListener("click",()=>{
+            popupElem.style.display = "none";
+        })
+    </script>
+</body>
+</html>
