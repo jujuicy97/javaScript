@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createElem연습</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        h1{
+            text-align: center;
+            margin: 1rem;
+        }
+        #userForm, .container > .item{
+            width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .container > .item > span{
+            width: 100px;
+        }
+        .container > .item > button{
+            width: 100px;
+            background-color: tomato;
+            border: none;
+            color: #eee;
+        }
+        #userForm > input{
+            width: 100%;
+        }
+        #userForm > button{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>createElement 연습</h1>
+    <form id="userForm">
+        <input type="text" placeholder="이름 입력" id="inputName" required>
+        <input type="number" placeholder="나이 입력" id="inputAge" required>
+        <!-- <input type="submit"> -->
+         <button type="submit">추가</button> <!--submit은 전송을 시키고 초기화가 기본값-->
+    </form>
+    <div class="container">
+        <!-- <div class="item">
+            <span>김삼순(40세)</span>
+            <button>삭제</button>
+        </div> -->
+    </div>
+    <script src="./0520inputCard.js"></script>
+</body>
+</html>

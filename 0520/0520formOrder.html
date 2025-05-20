@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상품 정보</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      form {
+        width: 500px;
+        margin: 100px auto;
+      }
+      fieldset {
+        padding: 20px 30px;
+        margin-bottom: 40px;
+      }
+      legend{
+        font-size: 1.5rem;
+        font-weight: bolder;
+      }
+      fieldset > div {
+        margin: 20px 0;
+        display: flex;
+      }
+      label{
+        width: 60px;
+      }
+      input {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        flex: 1;
+      }
+      button{
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        font-weight: bolder;
+      }
+    </style>
+  </head>
+  <body>
+    <form name="order">
+      <fieldset id="top">
+        <legend>상품 정보</legend>
+        <div>
+          <label for="product">상품 :</label>
+          <input type="text" id="product"> <!--autocomplete자동완성 꺼주기-->
+        </div>
+        <div>
+          <label for="prod-num">갯수 :</label>
+          <input type="number" id="prod-num" value="1" min="1" max="10">
+        </div>
+      </fieldset>
+
+      <fieldset id="bottom">
+        <legend>주문 정보</legend>
+        <div>
+          <label for="order-name">이름 :</label>
+          <input type="text" id="order-name">
+        </div>
+        <div>
+          <label for="order-phone">연락처 :</label>
+          <input type="text" id="order-phone">
+        </div>
+        <div>
+          <label for="order-arr">주소 :</label>
+          <input type="text" id="order-arr">
+        </div>
+      </fieldset>
+      <button type="submit">주문하기</button>
+    </form>
+    <script>
+        /**submit은 전송시킬 때 사용하는 이벤트
+         * submit : 버튼에서 일어나는 이벤트가 아님.
+         *          form에서 일어나는 이벤트임.
+         *          데이터를 전송시키고, form 안의 input들을 초기화 함.
+         */
+        //form 객체를 가져오기
+        const $form = document.querySelector("form[name=order]");
+        // console.log($form);
+        //event객체를 씀으로, 이벤트 발생 시 브라우저가 자동으로 알려줌
+        $form.addEventListener("submit",(event)=>{
+            // console.log("서브밋 이벤트 발생");
+            //↓이미 만들어진 기능을 초기화(form객체 내에서 기본적으로 submit은 input을 없애는 기능이 만들어져있어서(새로고침 기능))
+            event.preventDefault(); 
+            console.log("submit 이벤트 발생");
+        });
+
+        //autocomplete="off" 설정 input 전부다
+        const $inputAll = $form.querySelectorAll("input"); //inputAll은 배열로 가져온 것임
+        // console.log($inputAll);
+        $inputAll.forEach((input)=>{
+            //방법 1 :  input.autocomplete = "off";
+            input.setAttribute("autocomplete","off"); //방법2
+            console.log(input.getAttribute("autocomplete")); //방법3
+        });
+    </script>
+  </body>
+</html>
