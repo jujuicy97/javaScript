@@ -1,4 +1,4 @@
-//1.추가 버튼을 클릭이 되면 / 이름과 나이 정보 읽어오기
+ //1.추가 버튼을 클릭이 되면 / 이름과 나이 정보 읽어오기
 // const addBtnElem = document.querySelector("#userForm>button");
 const formElem = document.querySelector("#userForm");
 const nameElem = formElem.querySelector("#inputName"); //formElem안에 포함돼있어서 부모에서 쿼리셀렉터 가져올 수 있음
@@ -23,7 +23,7 @@ const listElem = document.querySelector(".container");
 //item 요소 생성 함수
 const createItem = (nameTxt,ageTxt)=>{
     //div 요소 생성
-    const divElem = document.createElement("div");
+    const divElem = document.createElement("div");    
     divElem.className = "item";
     //span 요소 생성
     const spanElem = document.createElement("span");

@@ -40,6 +40,44 @@
         padding: 10px 0;
         font-weight: bolder;
       }
+      #popup{
+        background-color: rgba(0,0,0,0.6);
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+      }
+      #popup.open{
+        display: block;
+      }
+      #popup > ul.view-list{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: #eee;
+        width: 500px;
+        height: 500px;
+        border-radius: 10px;
+        list-style: none;
+        padding: 2rem;    /*패딩값을 넣어주면, wid,hei값에 추가되기 때문에, 전체 사이즈가 커짐*/
+        box-sizing: border-box;   /*전체 사이즈가 커질 때 wid,hei값을 내가 설정한대로 맞춰주는 속성*/
+      }
+      #popup > ul >li{
+        margin-bottom: 1rem;
+      }
+      #popup > .close{
+        width: 100px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) translateY(-300px);
+        z-index: 10;
+        background-color: #222;
+        color: #eee;
+      }
     </style>
   </head>
   <body>
@@ -73,31 +111,84 @@
       </fieldset>
       <button type="submit">주문하기</button>
     </form>
+    
+    <div id="popup">
+      <button class="close">닫기</button>
+      <ul class="view-list"></ul>  <!--js로 li를 만들어서 사용-->
+    </div>
     <script>
-        /**submit은 전송시킬 때 사용하는 이벤트
-         * submit : 버튼에서 일어나는 이벤트가 아님.
-         *          form에서 일어나는 이벤트임.
-         *          데이터를 전송시키고, form 안의 input들을 초기화 함.
-         */
+//변수선언
         //form 객체를 가져오기
         const $form = document.querySelector("form[name=order]");
-        // console.log($form);
-        //event객체를 씀으로, 이벤트 발생 시 브라우저가 자동으로 알려줌
-        $form.addEventListener("submit",(event)=>{
-            // console.log("서브밋 이벤트 발생");
-            //↓이미 만들어진 기능을 초기화(form객체 내에서 기본적으로 submit은 input을 없애는 기능이 만들어져있어서(새로고침 기능))
-            event.preventDefault(); 
-            console.log("submit 이벤트 발생");
-        });
-
         //autocomplete="off" 설정 input 전부다
         const $inputAll = $form.querySelectorAll("input"); //inputAll은 배열로 가져온 것임
+        const $popup = document.querySelector("#popup");
+        const $ul = $popup.querySelector("ul");
+        const $colseBtn = $popup.querySelector(".close");
+
         // console.log($inputAll);
         $inputAll.forEach((input)=>{
             //방법 1 :  input.autocomplete = "off";
             input.setAttribute("autocomplete","off"); //방법2
             console.log(input.getAttribute("autocomplete")); //방법3
         });
+
+        /**submit은 전송시킬 때 사용하는 이벤트
+         * submit : 버튼에서 일어나는 이벤트가 아님.
+         *          form에서 일어나는 이벤트임.
+         *          데이터를 전송시키고, form 안의 input들을 초기화 함.
+         */
+
+        // $popup.style.display = "block"; //팝업창 띄우는 방법 1
+
+        //ul아래에 li들을 생성해서 추가(함수 선언은 맨 위에서)
+        const createItem = ()=>{
+          //li요소를 생성
+
+          //<li>상품 : 사용자가 입력한 상품명</li>의 형태
+          //input에 사용자가 입력한 정보를 불러오는 방법 .value
+          // let value = document.querySelector("#product").value;  
+          // elem.textContent = `상품 : ${value}`;
+          // console.log(elem);
+          $ul.innerHTML='';
+          //li요소의 각각input 객체 요소를 불러오기 (value)
+          $inputAll.forEach((elem)=>{
+            const $li = document.createElement("li"); //만들고싶은 태그 작성 <li></li>
+            //바로 이전에 만들어진 lable:textCotent 값 가져오기 (previousElementSibling)
+            const $prev = elem.previousElementSibling;
+            $li.textContent = `${$prev.textContent} ${elem.value}`;
+            // console.log($li);
+            $ul.appendChild($li);
+          });
+        };
+
+        //팝업창 닫기 버튼을 클릭하면 팝업이 안보이게 처리
+
+        $colseBtn.addEventListener("click",()=>{
+          //open클래스 삭제
+          $popup.classList.remove("open");
+        });
+
+        
+        // console.log($form);
+        //event객체를 씀으로, 이벤트 발생 시 브라우저가 자동으로 알려줌
+        $form.addEventListener("submit",(event)=>{
+            // console.log("서브밋 이벤트 발생");
+            //↓이미 만들어진 기능을 초기화(form객체 내에서 기본적으로 submit은 input을 없애는 기능이 만들어져있어서(새로고침 기능))
+            event.preventDefault(); 
+            // console.log("submit 이벤트 발생");
+
+            //팝업창 띄우는 방법2 (클래스를 추가해주기)
+            $popup.classList.add("open"); 
+
+            //팝업창의 목록을 띄우기
+            createItem(); //함수를 호출하겠다는 의미
+        });
+
+
+        //주문하기 버튼을 클릭했을때
+        //1. 객체 가져오기 -> 버튼 클릭하기 (이미 form에서 만들어놓은 submit이 있음)
+        // const orderBtn = document.querySelector("button");
     </script>
   </body>
 </html>
