@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+main{
+  /* display: none; */
+    height: 100vh;
+}
+#main{
+  height: 100vh;
+  background-color: #BDAAFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8rem;
+  padding-top: 20rem;
+}
+  h1{
+    text-align: center;
+    /* box-shadow: ; */
+  }
+  #main > #input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #input-box > input {
+    padding: 10px 30px;
+    border-radius: 15px;
+    border: none;
+  }
+  #input-box > button {
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+  }
+#input-box > button:hover{
+  color: #fff
+}
+
+/*메인 화면 이미지 위치 설정*/
+#images{
+  position: relative;
+}
+#images > .image1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* top: -200px;
+  right: 100px; */
+}
+#images > .image2{
+  position: absolute;
+  top: 0;
+  right: 0;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+</head>
+<body>
+    <div id="wrap">
+        <h1>인접선택자</h1>
+        <p class="text">내용1</p>
+        <ul>
+            <li>자식 요소 선택자</li>
+            <li class="text">하나 더</li>
+        </ul>
+    </div>
+    <script>
+        /**
+         * querySelector(객체로 가져옴), querySelectorAll(배열로 가져옴)
+         * gerElement~  
+        */
+        let elem = document.getElementById("wrap");
+        // elem = document.getElementsByClassName("text"); //배열로 출력
+        // elem = document.getElementsByTagName("p"); //한개만 가져와도 배열로 출력
+        
+        //***자식 요소 접근
+        const children = elem.children;
+        // console.log(children.length);
+
+        //wrap의 첫 번째 자식 요소, [0]
+        const firstChild = elem.firstElementChild;
+
+        //wrap의 마지막 자식 요소, [length-1]
+        const lastChild = elem.lastElementChild;
+
+        //wrap의 중간 자식 요소(자식을 배열로 가져왔기 때문에, 배열로 출력)
+        // console.log(children[1]);
+
+
+        //h1 요소 정보 가져오기
+        const $h1 = document.querySelector("h1");
+
+        //h1 부모 요소 접근
+        const parent = $h1.parentElement;
+        // console.log(parent);
+        const $li = parent.querySelectorAll("ul>li");
+        // console.log($li);
+        $li.forEach((li,idx) => {
+        // console.log(`li[${idx}] = ${li.textContent}`);
+        });
+
+        //특정 요소의 이전, 다음 형제 요소 접근
+        const $p = document.querySelector("p");
+        const prevSilbling = $p.previousElementSibling;
+        console.log(prevSilbling);  //h1
+        const nextSilbling = $p.nextElementSibling;
+        console.log(nextSilbling);  //ul
+    </script>
+</body>
+</html>
