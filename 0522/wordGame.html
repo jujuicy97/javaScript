@@ -89,10 +89,9 @@
       };
       $startBtn.addEventListener("click", handleStartBtn);
 
-      //input에서 Enter키를 눌렀을 때
       $btn.addEventListener("click", handelWordInput);
       $input.addEventListener("keydown", (e) => {
-        if (event.key === "Enter") {
+        if (e.key === "Enter") {
           $btn.click();
         }
       });
