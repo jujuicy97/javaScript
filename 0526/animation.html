@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>애니메이션 이동</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background-color: tomato;
+      transition: all 0.5s;
+    }
+    .move{
+      transform: translateX(200px);
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <button>이동</button>
+  <script>
+    const $btn = document.querySelector("button");
+    const $box = document.querySelector(".box");
+    let posX = 0;
+    $btn.addEventListener("click",()=>{
+      //transform, transition
+      //클래스 추가 안하고 스타일로만 지정했을 때
+      // $box.style.transform = "translateX(200px)";
+        // $box.style.transition = "all 0.5s";
+
+      //클래스 지정하여 스타일 줄 때
+      //toggle : 클래스를 추가/삭제 해줌 (add,remove를 번갈아가면서 실행)
+      // $box.classList.toggle("move"); 
+
+      //200px씩 이동하다가 800px에서 멈추기
+      if(posX <= 800){
+        posX+=200;
+        $box.style.transform = `translateX(${posX}px)`;
+      }
+    });
+  </script>
+</body>
+</html>

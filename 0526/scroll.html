@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    body{
+      height: 400vh; /*scroll event는 scroll이 있어야 사용 가능*/
+    }
+    a{
+      text-decoration: none; 
+      color: inherit;
+      display: block;
+      padding: 1rem 0;
+    }
+    ul{
+      list-style: none;
+      background-color: #222;
+      color: #eee;
+      display: flex;
+      justify-content: space-around;
+    }
+    header{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%; /*position사용하면 w값이 사라져서 설정해줘야 함*/
+      transition: top 0.5s;
+    }
+    .top{
+      width: 50px;
+      height: 50px;
+      background-color: tomato;
+      color: #eee;
+      text-align: center;
+      line-height: 50px;
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <ul>
+      <li><a href="#">메뉴1</a></li>
+      <li><a href="#">메뉴2</a></li>
+      <li><a href="#">메뉴3</a></li>
+      <li><a href="#">메뉴4</a></li>
+    </ul>
+  </header>
+  <div class="top">top</div>
+  <script>
+    const $header = document.querySelector("header");
+    window.addEventListener("scroll",(e)=>{
+      //제일 상단위에 올라가면 : scrollY:0
+      if(window.scrollY <= 0){
+        $header.style.top = "-100px";
+      } else {
+        $header.style.top = "0";
+      }
+    });
+
+    //.top을 cilck하면 scrollY=0이 되게 하기
+    document.querySelector(".top").addEventListener("click",()=>{
+      window.scrollTo({top:0, behavior:"smooth"}); //자연스럽게 이동하기(a태그에서도 사용 가능했음)
+    });
+  </script>
+</body>
+</html>
